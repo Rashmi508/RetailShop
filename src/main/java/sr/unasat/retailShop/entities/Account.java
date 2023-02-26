@@ -3,11 +3,11 @@ package sr.unasat.retailShop.entities;
 import javax.persistence.*;
 
 @Entity
-public class Orders {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
-    private int orderId;
+    @Column(name = "acc_id")
+    private int id;
     @Column
     private String firstname;
     @Column
@@ -15,24 +15,24 @@ public class Orders {
     @Column
     private String address;
     @Column
-    private int number;
+    private String number;
 
-    public Orders(int orderId, String firstname, String lastname, String address, int number) {
-        this.orderId = orderId;
+    public Account(int id, String firstname, String lastname, String address, String number) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
         this.number = number;
     }
 
-    public Orders(){}
+    public Account() {}
 
-    public int getOrderId() {
-        return orderId;
+    public int getId() {
+        return id;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstname() {
@@ -59,22 +59,22 @@ public class Orders {
         this.address = address;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
     @Override
     public String toString() {
-        return "Orders{" +
-                "orderId=" + orderId +
+        return "SignUp{" +
+                "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", address='" + address + '\'' +
-                ", number=" + number +
+                ", number='" + number + '\'' +
                 '}';
     }
 }

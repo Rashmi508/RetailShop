@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>Crud Operation</title>
+    <link type="text/css" rel="stylesheet" href="css/account.css">
+</head>
+
+<body>
+<table>
+    <tr>
+        <td>
+            <form autocomplete="off" onsubmit="onFormSubmit()">
+
+                <div>
+                    <input type="hidden" name="accId" id="accId">
+                </div>
+
+                <div>
+                    <label for="firstname">firstname</label>
+                    <input type="text" name="firstname" id="firstname">
+                </div>
+
+                <div>
+                    <label for="lastname">lastname</label>
+                    <input type="text" name="lastname" id="lastname">
+                </div>
+
+                <div>
+                    <label for="address">address</label>
+                    <input type="text" name="address" id="address">
+                </div>
+                <div>
+                    <label for="number">number</label>
+                    <input type="number" name="number" id="number">
+                </div>
+
+                <div class="form_action--button">
+                    <input type="submit" value="Submit" id="button">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+
+        <td>
+            <table class="list" id="clientList">
+                <thead>
+                <tr>
+                    <th>firstname</th>
+                    <th>lastname</th>
+                    <th>address</th>
+                    <th>number</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </td>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript" src="javascript/account.js"></script>
+</body>
+</html>

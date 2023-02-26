@@ -1,11 +1,8 @@
 package sr.unasat.retailShop.dao;
 
-import sr.unasat.retailShop.entities.Customer;
-import sr.unasat.retailShop.entities.Employees;
 import sr.unasat.retailShop.entities.Product;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 

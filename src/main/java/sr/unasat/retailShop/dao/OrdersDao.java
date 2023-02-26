@@ -22,4 +22,32 @@ public class OrdersDao {
         return ordersList;
     }
 
+    public Orders findOrderByNumber(String number) {
+        entityManager.getTransaction().begin();
+        String jpql = "select o from Orders o where o.number =: number";
+        TypedQuery<Orders> query = entityManager.createQuery(jpql, Orders.class);
+        query.setParameter("number", number);
+        Orders orders = query.getSingleResult();
+        entityManager.getTransaction().commit();
+        return orders;
+    }
+
+    public Orders insertOrder(Orders orders) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(orders);
+        entityManager.getTransaction().commit();
+        return orders;
+    }
+
+    public void deleteOrder(Orders orders) {
+        entityManager.getTransaction().begin();
+        entityManager.remove(orders);
+        entityManager.getTransaction().commit();
+    }
+
+    public void updateOrder(Orders updateOrder) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(updateOrder);
+        entityManager.getTransaction().commit();
+    }
 }
