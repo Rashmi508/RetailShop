@@ -21,6 +21,13 @@ public class AccountController {
         return accountDao.retrieveAccountList();
     }
 
+    @Path("/hello")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String helloWorld(){
+        return "sibal saekkia!";
+    }
+
 
     @Path("/add")
     @POST

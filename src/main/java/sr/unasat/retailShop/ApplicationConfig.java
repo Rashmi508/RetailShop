@@ -1,4 +1,4 @@
-package sr.unasat.retailShop.config;
+package sr.unasat.retailShop;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
@@ -12,7 +12,7 @@ public class ApplicationConfig extends Application {
     public Map<String, Object> getProperties() {
         Map<String, Object> properties = new HashMap<String, Object>();
         properties.put("jersey.config.server.provider.packages", "sr.unasat.retailShop.controller");
-        JpaConfig.getEntityManager();
+//        JpaConfig.getEntityManager();
         return properties;
     }
 }

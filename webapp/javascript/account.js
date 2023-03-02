@@ -42,7 +42,7 @@ var selectedRow = null
 
 function onFormSubmit(e) {
     event.preventDefault();
-    var formData = readFormData();
+    var formData = getClient();
     if (selectedRow == null){
         addClient(formData);
     }
@@ -53,17 +53,19 @@ function onFormSubmit(e) {
 }
 
 //Retrieve the data
-function readFormData() {
+function getClient(accId) {
 
-    let client = { "accId" : accId}
+    let client = { "accId" : accId,
+    "firstname" : document.getElementById("firstname").value,
+    "lastname" : document.getElementById("lastname").value,
+    "address" : document.getElementById("address").value,
+    "number" : document.getElementById("number").value}
     // var formData = {};
     // formData["loginId"] = loginId;
     // formData["firstname"] = document.getElementById("firstname").value;
     // formData["lastname"] = document.getElementById("lastname").value;
     // formData["address"] = document.getElementById("address").value;
     // formData["number"] = document.getElementById("number").value;
-
-
 
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -76,7 +78,7 @@ function readFormData() {
             document.getElementById("address").value = foundClient.address;
             document.getElementById("number").value = foundClient.number;
 
-            document.getElementById("button").innerHTML = "Update Order";
+            document.getElementById("button").innerHTML = "Update Client";
         }
     };
     xhttp.open("POST", "/RetailShop_Web_exploded/api/account/getClient", true);
@@ -118,8 +120,8 @@ function addClient(data) {
 }
 
 //Edit the data
-function editClient(td) {
-    selectedRow = td.parentElement.parentElement;
+function editClient(clientId) {
+    selectedRow = clientId.parentElement.parentElement;
     document.getElementById("firstname").value = selectedRow.cells[0].innerHTML;
     document.getElementById("lastname").value = selectedRow.cells[1].innerHTML;
     document.getElementById("address").value = selectedRow.cells[2].innerHTML;
