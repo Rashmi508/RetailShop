@@ -67,7 +67,7 @@ public class AccountController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Account getClient(AccountDto accountDto) {
-        return accountDao.findClientByNumber(accountDto.getNumber());
+    public Account getClient(Account account) {
+        return accountDao.findPerson(account);
     }
 }

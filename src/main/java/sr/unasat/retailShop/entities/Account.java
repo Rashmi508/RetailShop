@@ -25,6 +25,10 @@ public class Account {
         this.number = number;
     }
 
+    public Account (int id) {
+        this.id = id;
+    }
+
     public Account() {}
 
     public int getId() {

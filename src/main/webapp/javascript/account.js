@@ -33,7 +33,7 @@ function loadClientList() {
             document.getElementById("clientData").innerHTML = clientList;
         }
     };
-    xhttp.open("GET", "/RetailShop_Web_exploded/api/account/list", true);
+    xhttp.open("GET", "/RetailShop/api/account/list", true);
     xhttp.send();
 }
 
@@ -81,7 +81,7 @@ function getClient(accId) {
             document.getElementById("button").innerHTML = "Update Client";
         }
     };
-    xhttp.open("POST", "/RetailShop_Web_exploded/api/account/getClient", true);
+    xhttp.open("POST", "/RetailShop/api/account/getClient", true);
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.send(JSON.stringify(client));
 
@@ -108,7 +108,7 @@ function addClient(data) {
                             <button onClick="onDelete(this)">Delete</button>`;
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "/RetailShop_Web_exploded/api/account/add", true);
+    xmlhttp.open("POST", "/RetailShop/api/account/add", true);
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState > 3 && xmlhttp.status == 200) {
             loadClientList();
@@ -135,7 +135,7 @@ function updateClient(formData) {
     selectedRow.cells[3].innerHTML = formData.number;
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("PUT", "/RetailShop_Web_exploded/api/account/update", true);
+    xmlhttp.open("PUT", "/RetailShop/api/account/update", true);
     xmlhttp.onreadystatechange = function() {
         if(xmlhttp.readyState > 3 && xmlhttp.status == 200) {
             loadClientList();
@@ -156,7 +156,7 @@ function deleteClient(td) {
     }
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("DELETE", "/RetailShop_Web_exploded/api/account/remove", true);
+    xhttp.open("DELETE", "/RetailShop/api/account/remove", true);
     xhttp.onreadystatechange = function() {
         if(xhttp.readyState > 3 && xhttp == 200) {
             loadClientList();

@@ -14,7 +14,11 @@ public class AccountDao {
     }
 
     public List<Account> retrieveAccountList() {
-        entityManager.getTransaction().begin();
+
+        if(!entityManager.getTransaction().isActive() ) {
+
+            entityManager.getTransaction().begin();
+        }
         String jpql = "select ac from Account ac";
         TypedQuery<Account> query = entityManager.createQuery(jpql, Account.class);
         List<Account> accountList = query.getResultList();
@@ -22,9 +26,27 @@ public class AccountDao {
         return accountList;
     }
 
+    public Account findPerson (Account account) {
+
+        if(!entityManager.getTransaction().isActive() ) {
+
+            entityManager.getTransaction().begin();
+        }
+        String jpql = "select ac from Account ac";
+        TypedQuery<Account> query = entityManager.createQuery(jpql, Account.class);
+        Account acc = query.getSingleResult();
+        entityManager.getTransaction().commit();
+        return acc;
+    }
+
     public Account findClientByNumber(String number) {
-        entityManager.getTransaction().begin();
-        String jpql = "select ac from Account ac where ac.number=: number";
+
+        if(!entityManager.getTransaction().isActive() ) {
+
+            entityManager.getTransaction().begin();
+        }
+
+        String jpql = "select ac from Account ac where ac.number=:number";
         TypedQuery<Account> query = entityManager.createQuery(jpql, Account.class);
         query.setParameter("number", number);
         Account account = query.getSingleResult();

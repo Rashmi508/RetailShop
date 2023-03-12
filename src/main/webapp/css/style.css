@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
 :root{
-    --orange:#219dce;
+    --blue: #219dce;
     --black:#130f40;
     --light-color:rgb(255, 233, 233);
     --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
@@ -44,7 +44,7 @@ section{
 }
 
 .heading span{
-    background: var(--orange);
+    background: var(--blue);
     color:#fff;
     display: inline-block;
     padding:.5rem 3rem;
@@ -64,7 +64,7 @@ section{
 }
 
 .btn:hover{
-    background: var(--orange);
+    background: var(--blue);
     color:#fff;
 }
 
@@ -87,7 +87,7 @@ section{
 }
 
 .header .navbar a:hover{
-    color:var(--orange);
+    color:var(--blue);
 }
 
 .header .icons div{
@@ -104,7 +104,7 @@ section{
 }
 
 .header .icons div:hover{
-    background: var(--orange);
+    background: var(--blue);
     color:#fff;
 }
 
@@ -256,7 +256,7 @@ section{
 }
 
 .header .search-form label:hover{
-    color:var(--orange);
+    color:var(--blue);
 }
 
 /* .header .shopping-cart{
@@ -367,7 +367,7 @@ section{
 }
 
 .header .login-form p a{
-    color:var(--orange);
+    color:var(--blue);
     text-decoration: underline;
 }
 
@@ -394,7 +394,7 @@ section{
 }
 
 .home .content h3 span{
-    color:var(--orange);
+    color:var(--blue);
 }
 
 .home .content p{
