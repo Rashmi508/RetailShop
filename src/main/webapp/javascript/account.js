@@ -41,13 +41,13 @@ function loadClientList() {
 var selectedRow = null
 
 function onFormSubmit(e) {
-    event.preventDefault();
-    var formData = getClient();
+    // event.preventDefault();
+    // var formData = getClient();
     if (selectedRow == null){
-        addClient(formData);
+        addClient();
     }
     else{
-        updateClient(formData);
+        // updateClient(formData);
     }
     resetForm();
 }
@@ -78,7 +78,7 @@ function getClient(accId) {
             document.getElementById("address").value = foundClient.address;
             document.getElementById("number").value = foundClient.number;
 
-            document.getElementById("button").innerHTML = "Update Client";
+            document.getElementById("btnSaveClient").innerHTML = "Update Client";
         }
     };
     xhttp.open("POST", "/RetailShop/api/account/getClient", true);
@@ -92,32 +92,52 @@ function getClient(accId) {
 
 
 //Insert the data
-function addClient(data) {
-    var table = document.getElementById("clientList").getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
-    cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.firstname;
-    cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.lastname;
-    cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.address;
-    cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.number;
-    cell4 = newRow.insertCell(4);
-    cell4.innerHTML = `<button onClick="onEdit(this)">Edit</button> 
-                            <button onClick="onDelete(this)">Delete</button>`;
+// function addClient(data) {
+//     var table = document.getElementById("clientList").getElementsByTagName('tbody')[0];
+//     var newRow = table.insertRow(table.length);
+//     cell1 = newRow.insertCell(0);
+//     cell1.innerHTML = data.firstname;
+//     cell2 = newRow.insertCell(1);
+//     cell2.innerHTML = data.lastname;
+//     cell3 = newRow.insertCell(2);
+//     cell3.innerHTML = data.address;
+//     cell4 = newRow.insertCell(3);
+//     cell4.innerHTML = data.number;
+//     cell4 = newRow.insertCell(4);
+//     cell4.innerHTML = `<button onClick="onEdit(this)">Edit</button>
+//                             <button onClick="onDelete(this)">Delete</button>`;
+//
+//     var xmlhttp = new XMLHttpRequest();
+//     xmlhttp.open("POST", "/RetailShop/api/account/add", true);
+//     xmlhttp.onreadystatechange = function() {
+//         if (xmlhttp.readyState > 3 && xmlhttp.status == 200) {
+//             loadClientList();
+//             resetForm();
+//         }
+//     };
+//     xmlhttp.setRequestHeader("Content-Type", "application/json");
+//     xmlhttp.send(JSON.stringify(client));
+// }
 
-    var xmlhttp = new XMLHttpRequest();
+function addClient() {
+    let client = {  "accId" : null,
+        "firstname" : document.getElementById("firstname").value,
+        "lastname" : document.getElementById("lastname").value,
+        "address" : document.getElementById("address").value,
+        "number" : document.getElementById("number").value}
+
+var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "/RetailShop/api/account/add", true);
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState > 3 && xmlhttp.status == 200) {
-            loadClientList();
-            resetForm();
-        }
-    };
+    // xmlhttp.onreadystatechange = function() {
+    //     if (xmlhttp.readyState > 3 && xmlhttp.status == 200) {
+    //         loadClientList();
+    //         resetForm();
+    //     }
+    // };
     xmlhttp.setRequestHeader("Content-Type", "application/json");
     xmlhttp.send(JSON.stringify(client));
 }
+
 
 //Edit the data
 function editClient(clientId) {
@@ -128,11 +148,12 @@ function editClient(clientId) {
     document.getElementById("number").value = selectedRow.cells[3].innerHTML;
 }
 
-function updateClient(formData) {
-    selectedRow.cells[0].innerHTML = formData.firstname;
-    selectedRow.cells[1].innerHTML = formData.lastname;
-    selectedRow.cells[2].innerHTML = formData.address;
-    selectedRow.cells[3].innerHTML = formData.number;
+function updateClient() {
+    let client = {  "accId" : null,
+        "firstname" : document.getElementById("firstname").value,
+        "lastname" : document.getElementById("lastname").value,
+        "address" : document.getElementById("address").value,
+        "number" : document.getElementById("number").value}
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("PUT", "/RetailShop/api/account/update", true);
@@ -140,11 +161,11 @@ function updateClient(formData) {
         if(xmlhttp.readyState > 3 && xmlhttp.status == 200) {
             loadClientList();
             resetForm();
-            document.getElementById("button").innerHTML = "Edit";
+            document.getElementById("btnSaveClient").innerHTML = "Edit";
         }
     };
     xmlhttp.setRequestHeader("Content-Type", "application/json");
-    xmlhttp.send(JSON.stringify(order));
+    xmlhttp.send(JSON.stringify(client));
 }
 
 //Delete the data
@@ -172,6 +193,35 @@ function resetForm() {
     document.getElementById("lastname").value = '';
     document.getElementById("address").value = '';
     document.getElementById("number").value = '';
-    document.getElementById("button").innerHTML = "Order Now";
+    document.getElementById("btnSaveClient").innerHTML = "Add Client";
     selectedRow = null;
+}
+
+function saveClient() {
+
+    if(validateForm()) {
+        if(document.getElementById("btnSaveClient").innerHTML === 'Add Client') {
+            addClient();
+        }
+        else {
+            updateClient();
+        }
+    }
+}
+
+function validateForm()
+{
+    let pass = true;
+    let firstname = document.getElementById("firstname").value;
+    let lastname = document.getElementById("lastname").value;
+    let address = document.getElementById("address").value;
+    let number = document.getElementById("number").value;
+
+    if (firstname == null || firstname === "", lastname == null || lastname === "", address == null || address === "", number == null || number === "")
+    {
+        alert("Could you PLEASE fill in all the fields?");
+        pass = false;
+    }
+
+    return pass;
 }
