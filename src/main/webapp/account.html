@@ -1,62 +1,54 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Crud Operation</title>
-    <link type="text/css" rel="stylesheet" href="css/account.css">
+    <meta charset="UTF-8">
+    <title>Patient</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/account.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="javascript/account.js"></script>
 </head>
-
 <body>
-<table>
-    <tr>
-        <td>
-            <form autocomplete="off" onsubmit="onFormSubmit()">
+<header>
+    <div class="topnav">
+        <a href="index.html">Home</a>
 
-                <div>
-                    <input type="hidden" name="accId" id="accId">
-                </div>
+        <a class="active" href="account.html">Account</a>
+    </div>
+</header>
 
-                <div>
-                    <label for="firstname">firstname</label>
-                    <input type="text" name="firstname" id="firstname">
-                </div>
 
-                <div>
-                    <label for="lastname">lastname</label>
-                    <input type="text" name="lastname" id="lastname">
-                </div>
+<div class="w3-container w3-half w3-margin-top ">
 
-                <div>
-                    <label for="address">address</label>
-                    <input type="text" name="address" id="address">
-                </div>
-                <div>
-                    <label for="number">number</label>
-                    <input type="number" name="number" id="number">
-                </div>
+    <p>
+        <input id="accId" class="w3-input" type="hidden" style="width:90%">
+    </p>
 
-                <div class="form_action--button">
-                    <input type="submit" value="Submit" id="button">
-                    <input type="reset" value="Reset">
-                </div>
-            </form>
+    <p>
+        <input id="firstname" class="w3-input" type="text" style="width:90%" required>
+        <label>Firstname</label></p>
+    <p>
+        <input id="lastname" class="w3-input" type="text" style="width:90%" required>
+        <label>Lastname</label></p>
+    <p>
+        <input id="address" class="w3-input" type="text" style="width:90%" required>
+        <label>Address</label></p>
+    <p>
+        <input id="number" class="w3-input" type="number" style="width:90%" required>
+        <label>Number</label></p>
 
-        <td>
-            <table class="list" id="clientList">
-                <thead>
-                <tr>
-                    <th>firstname</th>
-                    <th>lastname</th>
-                    <th>address</th>
-                    <th>number</th>
-                </tr>
-                </thead>
-                <tbody>
+    <p>
+        <button id="btnSaveClient" onclick="saveClient()" class="btn-custom"> Add Client </button></p>
 
-                </tbody>
-            </table>
-        </td>
-        </td>
-    </tr>
-</table>
-<script type="text/javascript" src="javascript/account.js"></script>
+</div>
+
+<div id="clientData" class="w3-container">
+</div>
+<script>
+    clearInputFields();
+    loadPatientList();
+</script>
 </body>
 </html>

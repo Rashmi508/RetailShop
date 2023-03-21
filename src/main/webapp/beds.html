@@ -1,74 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beds</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mattrasses</title>
 
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
-    <!-- box ixons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Font -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+            rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/search.css" />
 </head>
 <body>
 
-<header>
-    <div class="nav container">
-        <a href="#" class="logo"></a>
-        <i class='bx bx-shopping-bag' id="cart-icon"></i>
+<div class="wrapper"></div>
 
-        <div class="cart">
-            <h2 class="cart-title">Your Cart</h2>
+<header class="header">
 
-            <div class="cart-content">
+    <a href="#" class="logo"><img src = "image/home.jpg" width="100" height="100"></a>
 
-            </div>
 
-            <div class="total">
-                <div class="total-title">Total</div>
-                <div class="total-price">SRD 0</div>
-            </div>
 
-            <!-- <button type="button" class="btn-buy">Buy Now</button> -->
-            <a href="order.html" class="btn-buy">Buy Now</a>
 
-            <i class='bx bx-x'id="close-cart"></i>
-        </div>
+    <div id="search-container">
+        <input
+                type="search"
+                id="search-input"
+                placeholder="Search..."
+        />
+        <button id="search">Search</button>
     </div>
+    <div id="buttons">
+
+
+
+        <button class="button-value" onclick="filterProduct('all')">All</button>
+
+    </div>
+
 </header>
 
-<section class="shop container">
-    <h2 class="section-title">Mattresses</h2>
+<section class="home" id="home">
 
-    <div class="shop-content">
-
-        <div class="product-box">
-            <img src="image/sierra.webp" alt="" class="product-image">
-            <h2 class="product-title">Sierra</h2>
-            <span class="price">SRD 45</span>
-            <i class='bx bx-shopping-bag add-cart'></i>
-        </div>
-
-        <div class="product-box">
-            <img src="image/sealy.jpg" alt="" class="product-image">
-            <h2 class="product-title">Sealy</h2>
-            <span class="price">SRD 55</span>
-            <i class='bx bx-shopping-bag add-cart'></i>
-        </div>
-
-        <div class="product-box">
-            <img src="image/serta.jpeg" alt="" class="product-image">
-            <h2 class="product-title">Serta</h2>
-            <span class="price">SRD 55</span>
-            <i class='bx bx-shopping-bag add-cart'></i>
-        </div>
-
+    <div class="content">
+        <h3>A <span>good</span> living room gives you the <span>will </span> to <span>live</span> :)</h3>
     </div>
+
 </section>
 
-<script src="javascript/delivery.js"></script>
 
+<div id="products"></div>
+</div>
+<!-- Script -->
+<script src="javascript/beds.js"></script>
 </body>
 </html>

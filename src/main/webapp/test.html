@@ -1,55 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Patient</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="css/test.css">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="javascript/account.js"></script>
+    <title>Crud Operation</title>
+    <link type="text/css" rel="stylesheet" href="css/test.css">
 </head>
+
 <body>
-<header>
-    <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="medicine.html">Medicine</a>
-        <a href="prescription.html">Prescription</a>
-        <a class="active" href="patient.html">Patient</a>
-    </div>
-</header>
+<table>
+    <tr>
+        <td>
+            <form autocomplete="off" onsubmit="onFormSubmit()">
 
+                <div>
+                    <input type="hidden" name="accId" id="accId">
+                </div>
 
-<div class="w3-container w3-half w3-margin-top ">
+                <div>
+                    <label for="firstname">firstname</label>
+                    <input type="text" name="firstname" id="firstname">
+                </div>
 
-    <p>
-        <input id="accId" class="w3-input" type="hidden" style="width:90%">
-    </p>
+                <div>
+                    <label for="lastname">lastname</label>
+                    <input type="text" name="lastname" id="lastname">
+                </div>
 
-    <p>
-        <input id="firstname" class="w3-input" type="text" style="width:90%" required>
-        <label>Firstname</label></p>
-    <p>
-        <input id="lastname" class="w3-input" type="text" style="width:90%" required>
-        <label>Lastname</label></p>
-    <p>
-        <input id="address" class="w3-input" type="text" style="width:90%" required>
-        <label>Address</label></p>
-    <p>
-        <input id="number" class="w3-input" type="number" style="width:90%" required>
-        <label>Number</label></p>
+                <div>
+                    <label for="address">address</label>
+                    <input type="text" name="address" id="address">
+                </div>
+                <div>
+                    <label for="number">number</label>
+                    <input type="number" name="number" id="number">
+                </div>
 
-    <p>
-        <button id="btnSaveClient" onclick="saveClient()" class="btn-custom"> Add Client </button></p>
+                <div class="form_action--button">
+                    <input type="submit" value="Submit" id="button">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
 
-</div>
+        <td>
+            <table class="list" id="clientList">
+                <thead>
+                <tr>
+                    <th>firstname</th>
+                    <th>lastname</th>
+                    <th>address</th>
+                    <th>number</th>
+                </tr>
+                </thead>
+                <tbody>
 
-<div id="clientData" class="w3-container">
-</div>
-<script>
-    clearInputFields();
-    loadPatientList();
-</script>
+                </tbody>
+            </table>
+        </td>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript" src="javascript/account.js"></script>
 </body>
 </html>
