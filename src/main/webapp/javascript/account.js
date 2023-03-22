@@ -1,41 +1,41 @@
 loadClientList();
 
-// function loadClientList() {
-//     let xhttp = new XMLHttpRequest();
-//     xhttp.onreadystatechange = function () {
-//         if (this.readyState == 4 && this.status == 200) {
-//             let clientDataList = JSON.parse(this.responseText);
-//             let clientList = ' <ul class="w3-ul w3-card-4"> ';
-//
-//             clientDataList.reverse();
-//
-//             for(let index = 0; index < clientDataList.length; index++) {
-//                 clientList +=
-//
-//                     ' <li class="w3-bar"> ' +
-//
-//                     ' <button id= ' + clientDataList[index].id + ' onclick="editClient(this.id)" ' +
-//                     ' class="w3-bar-item w3-button w3-small w3-right">Edit</button> ' +
-//
-//                     ' <button id=' + clientDataList[index].id + ' onclick="removeClient(this.id)" ' +
-//                     ' class="w3-bar-item w3-button w3-small w3-right">Remove</button> ' +
-//
-//
-//                     ' <img src="image/client.jpg" class="w3-bar-item w3-circle w3-hide-small" style="width:85px"> ' +
-//                     ' <div class="w3-bar-item"> ' +
-//                     ' <span class="w3-large"> firstname: ' +  clientDataList[index].firstname  + ' </span><br> ' +
-//                     ' <span> lastname: ' +  clientDataList[index].lastname  + ' </span> <br>' +
-//                     ' <span> address: ' +  clientDataList[index].address  + ' </span> <br>' +
-//                     ' <span> number: ' +  clientDataList[index].number  + ' </span>' +
-//                     ' </div> ';
-//             }
-//             clientList += "</ul>";
-//             document.getElementById("clientData").innerHTML = clientList;
-//         }
-//     };
-//     xhttp.open("GET", "/RetailShop/api/account/list", true);
-//     xhttp.send();
-// }
+function loadClientList() {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let clientDataList = JSON.parse(this.responseText);
+            let clientList = ' <ul class="w3-ul w3-card-4"> ';
+
+            clientDataList.reverse();
+
+            for(let index = 0; index < clientDataList.length; index++) {
+                clientList +=
+
+                    ' <li class="w3-bar"> ' +
+
+                    ' <button id= ' + clientDataList[index].id + ' onclick="editClient(this.id)" ' +
+                    ' class="w3-bar-item w3-button w3-small w3-right">Edit</button> ' +
+
+                    ' <button id=' + clientDataList[index].id + ' onclick="removeClient(this.id)" ' +
+                    ' class="w3-bar-item w3-button w3-small w3-right">Remove</button> ' +
+
+
+                    ' <img src="image/client.jpg" class="w3-bar-item w3-circle w3-hide-small" style="width:85px"> ' +
+                    ' <div class="w3-bar-item"> ' +
+                    ' <span class="w3-large"> firstname: ' +  clientDataList[index].firstname  + ' </span><br> ' +
+                    ' <span> lastname: ' +  clientDataList[index].lastname  + ' </span> <br>' +
+                    ' <span> address: ' +  clientDataList[index].address  + ' </span> <br>' +
+                    ' <span> number: ' +  clientDataList[index].number  + ' </span>' +
+                    ' </div> ';
+            }
+            clientList += "</ul>";
+            document.getElementById("clientData").innerHTML = clientList;
+        }
+    };
+    xhttp.open("GET", "/RetailShop/api/account/list", true);
+    xhttp.send();
+}
 
 
 var selectedRow = null
