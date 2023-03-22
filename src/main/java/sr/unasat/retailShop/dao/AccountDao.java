@@ -32,8 +32,9 @@ public class AccountDao {
 
             entityManager.getTransaction().begin();
         }
-        String jpql = "select ac from Account ac";
+        String jpql = "select ac from Account ac where ac.number=:number";
         TypedQuery<Account> query = entityManager.createQuery(jpql, Account.class);
+        query.setParameter("number", account.getNumber());
         Account acc = query.getSingleResult();
         entityManager.getTransaction().commit();
         return acc;

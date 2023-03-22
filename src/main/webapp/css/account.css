@@ -10,10 +10,11 @@
     cursor:pointer;
     white-space:nowrap;
     color:#fff;
-    background-color: #04AA6D;}
+    background-color: #219dce;}
 
 .btn-primary:hover{color:#fff;
-    background-color:#20c997;}
+    background-color: rgba(33, 157, 206, 0.55);
+}
 
 body {
     margin: 0;
@@ -40,7 +41,7 @@ body {
 }
 
 .topnav a.active {
-    background-color: #04AA6D;
+    background-color: #219dce;
     color: white;
 }
 

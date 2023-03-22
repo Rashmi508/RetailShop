@@ -76,14 +76,7 @@ function updateOrder() {
     xmlhttp.send(JSON.stringify(order));
 }
 
-function clearInputFields() {
-    document.getElementById("orderId").value = "";
-    document.getElementById("firstname").value = "";
-    document.getElementById("lastname").value = "";
-    document.getElementById("address").value = "";
-    document.getElementById("number").value = "";
-    document.getElementById("button").innerHTML = "Order Now";
-}
+
 
 function removeOrder(orderId) {
     if( confirm("Do you really want to delete this order?")) {
