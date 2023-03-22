@@ -1,4 +1,4 @@
-loadClientList();
+// loadClientList();
 
 function loadClientList() {
     let xhttp = new XMLHttpRequest();
@@ -55,7 +55,7 @@ function onFormSubmit(e) {
 //Retrieve the data
 function getClient(accId) {
 
-    let client = { "accId" : accId,
+    let client = { "id" : accId,
     "firstname" : document.getElementById("firstname").value,
     "lastname" : document.getElementById("lastname").value,
     "address" : document.getElementById("address").value,
@@ -120,11 +120,13 @@ function getClient(accId) {
 // }
 
 function addClient() {
-    let client = {  "accId" : null,
+
+    let client = {
         "firstname" : document.getElementById("firstname").value,
         "lastname" : document.getElementById("lastname").value,
         "address" : document.getElementById("address").value,
         "number" : document.getElementById("number").value}
+    console.log(client);
 
 var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "/RetailShop/api/account/add", true);
@@ -149,7 +151,7 @@ function editClient(clientId) {
 }
 
 function updateClient() {
-    let client = {  "accId" : null,
+    let client = {  "id" : null,
         "firstname" : document.getElementById("firstname").value,
         "lastname" : document.getElementById("lastname").value,
         "address" : document.getElementById("address").value,
@@ -200,7 +202,7 @@ function resetForm() {
 function saveClient() {
 
     if(validateForm()) {
-        if(document.getElementById("btnSaveClient").innerHTML === 'Add Client') {
+        if(document.getElementById("btnSaveClient").innerHTML === ' Add Client ') {
             addClient();
         }
         else {

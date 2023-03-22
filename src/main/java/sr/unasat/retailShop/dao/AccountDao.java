@@ -55,7 +55,12 @@ public class AccountDao {
     }
 
     public Account insertClient(Account account) {
-        entityManager.getTransaction().begin();
+
+        if(!entityManager.getTransaction().isActive() ) {
+
+            entityManager.getTransaction().begin();
+        }
+
         entityManager.persist(account);
         entityManager.getTransaction().commit();
         return account;
